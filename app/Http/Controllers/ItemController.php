@@ -185,7 +185,7 @@ class ItemController extends Controller
     {
         // Get the item
         $item = Item::find($id);
-        if ($item->appid === null && $item->class !== null) { // old apps wont have an app id so set it
+        if ($item->appid === null && $item->class !== null) { // old apps won't have an app id so set it
             $app = Application::where('class', $item->class)->first();
             if ($app) {
                 $item->appid = $app->appid;

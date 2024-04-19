@@ -12924,7 +12924,7 @@ namespace Illuminate\Support\Facades {
                         $instance->substituteImplicitBindings($route);
         }
                     /**
-         * Register a callback to to run after implicit bindings are substituted.
+         * Register a callback to run after implicit bindings are substituted.
          *
          * @param callable $callback
          * @return \Illuminate\Routing\Router 
