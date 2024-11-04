@@ -111,7 +111,7 @@ $.when($.ready).then(() => {
   $("#search-container")
     .on("input", "input[name=q]", function () {
       const search = this.value;
-      const items = $("#sortable").children(".item-container");
+      const items = $("#sortable").find(".item-container");
       if ($("#search-container select[name=provider]").val() === "tiles") {
         if (search.length > 0) {
           items.hide();
