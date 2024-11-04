@@ -56,10 +56,13 @@ Route::name('tags.')->prefix('tag')->group(function () {
 /**
  * Item Routes
  */
+Route::middleware(['throttle:10,1'])->group(function () {
+    Route::get('/items/websitelookup/{url}', [ItemController::class, 'websitelookup'])->name('lookup');
+});
+
 Route::resource('items', ItemController::class);
 
 Route::name('items.')->prefix('items')->group(function () {
-    Route::get('/websitelookup/{url}', [ItemController::class, 'websitelookup'])->name('lookup');
     Route::get('/pin/{id}', [ItemController::class, 'pin'])->name('pin');
     Route::get('/restore/{id}', [ItemController::class, 'restore'])->name('restore');
     Route::get('/unpin/{id}', [ItemController::class, 'unpin'])->name('unpin');
