@@ -129,7 +129,7 @@ $.when($.ready).then(() => {
       }
     })
     .on("change", "select[name=provider]", function () {
-      const items = $("#sortable").children(".item-container");
+      const items = $("#sortable").find(".item-container");
       if ($(this).val() === "tiles") {
         $("#search-container button").hide();
         const search = $("#search-container input[name=q]").val();
@@ -148,7 +148,9 @@ $.when($.ready).then(() => {
         $("#search-container button").show();
         items.show();
       }
-    });
+    })
+    
+  $("#search-container select[name=provider]").trigger("change");
 
   $("#app")
     .on("click", "#config-button", (e) => {
