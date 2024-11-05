@@ -117,7 +117,7 @@ function className($name)
  */
 function isImage(string $file, string $extension): bool
 {
-    $allowedExtensions = ['jpg', 'jpeg', 'png', 'bmp', 'gif', 'svg', 'webp'];
+    $allowedExtensions = ['jpg', 'jpeg', 'png', 'bmp', 'gif', 'svg', 'webp', 'ico'];
 
     if (!in_array($extension, $allowedExtensions)) {
         return false;
