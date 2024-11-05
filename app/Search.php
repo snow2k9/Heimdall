@@ -5,6 +5,7 @@ namespace App;
 use Cache;
 use Form;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Request as Input;
 use Yaml;
 
 abstract class Search
@@ -106,7 +107,7 @@ abstract class Search
         if ((bool) $homepage_search !== true) {
             return $output;
         }
-        $user_search_provider = $user_search_provider ?? 'none';
+        $user_search_provider = Input::get('p') ?? $user_search_provider ?? 'none';
 
         if ((bool) $search_provider) {
             if ((bool) $user_search_provider) {
@@ -124,7 +125,7 @@ abstract class Search
                 $output .= '</select>';
                 $output .= Form::text(
                     'q',
-                    null,
+                    Input::get('q') ?? null,
                     [
                         'class' => 'homesearch',
                         'autofocus' => 'autofocus',
