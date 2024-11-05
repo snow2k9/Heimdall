@@ -148,8 +148,8 @@ $.when($.ready).then(() => {
         $("#search-container button").show();
         items.show();
       }
-    })
-    
+    });
+
   $("#search-container select[name=provider]").trigger("change");
 
   $("#app")
